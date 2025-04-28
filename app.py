@@ -26,7 +26,7 @@ Please write it in a professional legal tone.
         messages=[
             {"role": "system", "content": "You are a legal documentation assistant."},
             {"role": "user", "content": prompt}
-        ],
+        ]
         temperature=0.3
         max_tokens=2000
     )
