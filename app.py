@@ -21,15 +21,14 @@ Additional Clauses: {inputs['additional_clauses']}
 Please write it in a professional legal tone.
 """
 
-    response = client.chat.completions.create(
-        model="gpt-3.5-turbo",  # ✅ CAREFULLY this must be exactly like this!
-        messages=[
-            {"role": "system", "content": "You are a legal documentation assistant."},
-            {"role": "user", "content": prompt}
-        ],
-        temperature=0.3
-    )
-    return response.choices[0].message.content
+   response = client.chat.completions.create(
+    model="gpt-4o",   # or use "gpt-4o" if you want better quality
+    messages=[
+        {"role": "system", "content": "You are a legal documentation assistant."},
+        {"role": "user", "content": prompt}
+    ],
+    temperature=0.3
+)
 
 
 # Streamlit UI
