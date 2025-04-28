@@ -19,17 +19,17 @@ Scope/Purpose: {inputs['purpose']}
 Additional Clauses: {inputs['additional_clauses']}
 
 Please write it in a professional legal tone.
-"""
+    """
 
-   response = client.chat.completions.create(
-    model="gpt-4o",   # or use "gpt-4o" if you want better quality
-    messages=[
-        {"role": "system", "content": "You are a legal documentation assistant."},
-        {"role": "user", "content": prompt}
-    ],
-    temperature=0.3
-)
-
+    response = client.chat.completions.create(
+        model="gpt-4o",    # or gpt-3.5-turbo if you want cheaper version
+        messages=[
+            {"role": "system", "content": "You are a legal documentation assistant."},
+            {"role": "user", "content": prompt}
+        ],
+        temperature=0.3
+    )
+    return response.choices[0].message.content
 
 # Streamlit UI
 st.title("📝 Legal Document Generator")
