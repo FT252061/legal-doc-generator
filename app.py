@@ -4,7 +4,12 @@ import openai
 # Set your OpenAI API Key
 openai.api_key = "YOUR_OPENAI_API_KEY"
 
-# Function to call GPT and generate document
+# Updated function for OpenAI new API (April 2024+)
+
+from openai import OpenAI
+
+client = OpenAI()  # create a client instance
+
 def generate_document(document_type, inputs):
     prompt = f"""
 You are an expert legal draftsman. Draft a {document_type} based on the following inputs:
@@ -20,7 +25,7 @@ Additional Clauses: {inputs['additional_clauses']}
 Please write it in a professional legal tone.
 """
 
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model="gpt-4-turbo",
         messages=[
             {"role": "system", "content": "You are a legal documentation assistant."},
@@ -28,7 +33,8 @@ Please write it in a professional legal tone.
         ],
         temperature=0.3
     )
-    return response['choices'][0]['message']['content']
+    return response.choices[0].message.content
+
 
 # Streamlit UI
 st.title("📝 Legal Document Generator")
