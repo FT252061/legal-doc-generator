@@ -2,10 +2,9 @@ import streamlit as st
 from openai import OpenAI
 import os
 
-# Initialize OpenAI Client properly
+# Initialize OpenAI client properly
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-# Function to generate the legal document
 def generate_document(document_type, inputs):
     prompt = f"""
 You are an expert legal draftsman. Draft a {document_type} based on the following inputs:
@@ -22,13 +21,14 @@ Please write it in a professional legal tone.
     """
 
     response = client.chat.completions.create(
-        model="gpt-4o",    # or gpt-3.5-turbo if you want cheaper version
+        model="gpt-4o",   # ✅ Correct model name
         messages=[
             {"role": "system", "content": "You are a legal documentation assistant."},
             {"role": "user", "content": prompt}
         ],
         temperature=0.3,
-        max_tokens=2000
+        max_tokens=2000,
+        response_format="text"   # ✅ Important to specify text format now!
     )
     return response.choices[0].message.content
 
