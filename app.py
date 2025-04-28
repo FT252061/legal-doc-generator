@@ -11,7 +11,7 @@
      "evalue": "unexpected character after line continuation character (3516072018.py, line 74)",
      "output_type": "error",
      "traceback": [
-      "\u001b[1;36m  Cell \u001b[1;32mIn[3], line 74\u001b[1;36m\u001b[0m\n\u001b[1;33m    cd path\\to\\your\\folder\u001b[0m\n\u001b[1;37m            ^\u001b[0m\n\u001b[1;31mSyntaxError\u001b[0m\u001b[1;31m:\u001b[0m unexpected character after line continuation character\n"
+      "\u001b[1;36m  Cell \u001b[1;32mIn[3], line 74\u001b[1;36m\u001b[0m\n\u001b[1;33m
      ]
     }
    ],
