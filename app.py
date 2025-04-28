@@ -1,15 +1,11 @@
 import streamlit as st
-import openai
-
-# Set your OpenAI API Key
-openai.api_key = "YOUR_OPENAI_API_KEY"
-
-# Updated function for OpenAI new API (April 2024+)
-
 from openai import OpenAI
+import os
 
-client = OpenAI()  # create a client instance
+# Initialize OpenAI Client properly
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
+# Function to generate the legal document
 def generate_document(document_type, inputs):
     prompt = f"""
 You are an expert legal draftsman. Draft a {document_type} based on the following inputs:
