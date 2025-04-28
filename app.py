@@ -21,14 +21,13 @@ Please write it in a professional legal tone.
     """
 
     response = client.chat.completions.create(
-        model="gpt-4o",   # ✅ Correct model name
+        model="gpt-4o",
         messages=[
             {"role": "system", "content": "You are a legal documentation assistant."},
             {"role": "user", "content": prompt}
         ],
         temperature=0.3,
-        max_tokens=2000,
-        response_format="text"   # ✅ Important to specify text format now!
+        max_tokens=2000
     )
     return response.choices[0].message.content
 
